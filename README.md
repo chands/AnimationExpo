@@ -28,7 +28,3 @@ git clone https://github.com/chands/AnimationExpo.git
 ```
 
 Open in Android Studio, sync Gradle, run on a device or emulator (API 24+).
-
-## Credits
-
-Ported from the [Interactive 3D Receipt](https://codepen.io/flornkm) CodePen by flornkm (WebGL + JavaScript) to pure Compose Canvas.

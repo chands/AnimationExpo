@@ -35,7 +35,10 @@ private val INDICATOR_FILL_COLOR = Color(0x1A000000)
 private val HINT_TEXT_COLOR = Color(0xFF888888)
 
 @Composable
-fun InteractiveReceiptScreen() {
+fun InteractiveReceiptScreen(
+    modifier: Modifier = Modifier,
+    showHint: Boolean = true
+) {
     val mesh = remember { ReceiptMeshGenerator.generate() }
     val simulation = remember { ClothSimulation(mesh) }
     val textureBitmap = remember { ReceiptTextureGenerator.generate() }
@@ -57,7 +60,7 @@ fun InteractiveReceiptScreen() {
     }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(BACKGROUND_COLOR)
     ) {
@@ -123,18 +126,20 @@ fun InteractiveReceiptScreen() {
             }
         }
 
-        Text(
-            text = "Grab and drag the receipt",
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 40.dp),
-            style = TextStyle(
-                color = HINT_TEXT_COLOR,
-                fontSize = 17.sp,
-                fontWeight = FontWeight.Medium,
-                letterSpacing = 0.5.sp
+        if (showHint) {
+            Text(
+                text = "Grab and drag the receipt",
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 40.dp),
+                style = TextStyle(
+                    color = HINT_TEXT_COLOR,
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Medium,
+                    letterSpacing = 0.5.sp
+                )
             )
-        )
+        }
     }
 }
 

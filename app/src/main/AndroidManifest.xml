@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimationExpo">
         <activity
-            android:name=".ReceiptAnimationActivity"
+            android:name=".AnimationExpoActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
